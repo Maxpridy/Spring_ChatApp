@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hello WebSocket</title>
+    <title>Chat!</title>
     <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/main.css" rel="stylesheet">
     <script src="/webjars/jquery/jquery.min.js"></script>
@@ -30,7 +30,7 @@
                 <div class="form-group">
                     <label for="name">What is your name?</label>
                     <input type="text" id="name" class="form-control" placeholder="Your name here...">
-                    <input type="text" id="msg" class="form-control">
+                    <input type="text" id="chat" class="form-control">
                 </div>
                 <button id="send" class="btn btn-default" type="submit">Send</button>
             </form>
@@ -50,6 +50,10 @@
         </div>
     </div>
     </form>
+    
+    <script>
+    	connect();
+    </script>
 </div>
 </body>
 </html>

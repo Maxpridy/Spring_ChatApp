@@ -33,8 +33,15 @@ function disconnect() {
 }
 
 function sendName() {
-    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val(), 'msg':$("#msg").val()}));
-    $("#msg").val('');
+	var data = JSON.stringify({'name': $("#name").val(), 'chat':$("#chat").val()});
+	stompClient.send("/app/hello", {}, data);
+    $.ajax({
+    	  "url": "./api/chats", "method": "POST", "headers": {"content-type": "application/json"}, "data": data
+    	}).fail(function(error){
+    		console.log(error);
+    	})
+    
+    $("#chat").val('');
 }
 
 function showGreeting(message) {
@@ -48,5 +55,8 @@ $(function () {
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
     $( "#send" ).click(function() { sendName(); });
+    
 });
+
+
 

@@ -30,8 +30,8 @@ import org.springframework.web.socket.sockjs.client.SockJsClient;
 import org.springframework.web.socket.sockjs.client.Transport;
 import org.springframework.web.socket.sockjs.client.WebSocketTransport;
 
-import max.chat.domain.Chatstring;
-import max.chat.domain.Message;
+import max.chat.domain.ChatString;
+import max.chat.domain.Chat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -69,12 +69,12 @@ public class GreetingIntegrationTests {
                 session.subscribe("/topic/greetings", new StompFrameHandler() {
                     @Override
                     public Type getPayloadType(StompHeaders headers) {
-                        return Chatstring.class;
+                        return ChatString.class;
                     }
 
                     @Override
                     public void handleFrame(StompHeaders headers, Object payload) {
-                        Chatstring greeting = (Chatstring) payload;
+                        ChatString greeting = (ChatString) payload;
                         try {
                             assertEquals("Spring : World!", greeting.getContent());
                         } catch (Throwable t) {
@@ -86,7 +86,7 @@ public class GreetingIntegrationTests {
                     }
                 });
                 try {
-                    session.send("/app/hello", new Message("Spring", "World!"));
+                    session.send("/app/hello", new Chat("Spring", "World!"));
                 } catch (Throwable t) {
                     failure.set(t);
                     latch.countDown();
