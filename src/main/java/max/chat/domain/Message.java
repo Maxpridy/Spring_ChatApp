@@ -1,22 +1,22 @@
-package hello;
+package max.chat.domain;
 
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HelloMessage {
+public class Message {
 
     private String name;
     private String msg;
 
-    public HelloMessage() {
+    public Message() {
     }
 
 //    public HelloMessage(String name) {
 //        this.name = name;
 //    }
     
-    public HelloMessage(String name, String msg) {
+    public Message(String name, String msg) {
         this.name = name;
         this.msg = msg;
     }

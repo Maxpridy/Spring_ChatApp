@@ -1,13 +1,13 @@
-package hello;
+package max.chat.domain;
 
-public class Greeting {
+public class Chatstring {
 
     private String content;
 
-    public Greeting() {
+    public Chatstring() {
     }
 
-    public Greeting(String content) {
+    public Chatstring(String content) {
         this.content = content;
     }
 
