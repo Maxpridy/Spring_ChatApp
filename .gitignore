@@ -1,6 +1,6 @@
 build
 target
-*.settings
-*.classpath
-*.project
-*.springBeans
+.settings
+.classpath
+.project
+.springBeans
