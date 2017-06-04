@@ -31,6 +31,12 @@ public class ChatController {
 	private final Logger log = LoggerFactory.getLogger(ChatController.class); 
 	
 	
+	@Autowired
+	public ChatController(ChatService service){
+		this.service = service;
+	}
+	
+	
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
     public ChatString greeting(Chat chat) throws Exception {
@@ -43,16 +49,6 @@ public class ChatController {
 		Chat newChat = service.create(chat);
 		log.info("book created : {}", newChat);
 		return chat;
-	}
-
-	@Autowired
-	public ChatController(ChatService service){
-		this.service = service;
-	}
-	
-	@GetMapping("/hello")
-	String hello(){
-		return "¾È³ç! á¦Í£!";
 	}
 	
 	@GetMapping
