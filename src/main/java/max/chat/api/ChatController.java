@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import max.chat.domain.ChatString;
+import max.chat.domain.ChatData;
 import max.chat.service.ChatService;
 import max.chat.domain.Chat;
 
@@ -38,16 +38,18 @@ public class ChatController {
 	
 	
     @MessageMapping("/hello")
-    @SendTo("/topic/greetings")
-    public ChatString greeting(Chat chat) throws Exception {
-        return new ChatString(chat.getName() + " : " + chat.getChat());
+    @SendTo("/topic/chatline")
+    public Chat responseChat(Chat chat) throws Exception {
+        return new Chat(chat.getId(), chat.getChatName(), chat.getChatContent(), chat.getDate());
+    	//return new ChatString(chat.getName() + " : " + chat.getChat());
+    	//return chat;
     }
     
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	Chat create(@RequestBody Chat chat){
 		Chat newChat = service.create(chat);
-		log.info("book created : {}", newChat);
+		log.info("chat created : {}", newChat);
 		return chat;
 	}
 	

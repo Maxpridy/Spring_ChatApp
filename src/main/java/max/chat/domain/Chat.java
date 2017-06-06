@@ -8,51 +8,53 @@ import java.util.List;
 public class Chat {
 
 	private Integer id;
-    private String name;
-    private String chat;
+    private String chatName;
+    private String chatContent;
     private Date date = new Date(System.currentTimeMillis());
     
-    public Chat() {
+
+	public Chat() {
     }
     
-	public Chat(String name, String chat) {
-        this.name = name;
-        this.chat = chat;
+	public Chat(String chatName, String chatContent) {
+        this.chatName = chatName;
+        this.chatContent = chatContent;
     }
 	
-	public Chat(Integer id, String name, String chat, Date date){
+	public Chat(Integer id, String chatName, String chatContent, Date date){
 		this.id = id;
-		this.name = name;
-		this.chat = chat;
+		this.chatName = chatName;
+		this.chatContent = chatContent;
 		this.date = date;
 	}
 
 
-    public int getId() {
+	
+    public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-    public String getName() {
-        return name;
-    }
-    
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getChat(){
-    	return chat;
-    }
-    
-    public void setChat(String chat){
-    	this.chat = chat;
-    }
-    
-    public Date getDate() {
+	public String getChatName() {
+		return chatName;
+	}
+
+	public void setChatName(String chatName) {
+		this.chatName = chatName;
+	}
+
+	public String getChatContent() {
+		return chatContent;
+	}
+
+	public void setChatContent(String chatContent) {
+		this.chatContent = chatContent;
+	}
+
+	public Date getDate() {
 		return date;
 	}
 

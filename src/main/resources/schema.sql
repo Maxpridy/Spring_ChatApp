@@ -1,6 +1,6 @@
 CREATE TABLE chat (
 	id INT IDENTITY NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	name varchar2(20),
-	chat TEXT,
+	chatName varchar2(20),
+	chatContent TEXT,
 	date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
